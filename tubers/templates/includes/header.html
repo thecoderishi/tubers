@@ -1,0 +1,27 @@
+<header class="header">
+  <div class="container">
+    <div class="row">
+      <div class="col-md-6 header-info">
+        <a href="mailto:info@ytubers.com" class="mr-3">
+          {% if hfcontrol.email %} {{hfcontrol.email}} {% else %} info@tuber.com
+          {% endif %}
+        </a>
+        <span
+          >Call at: +91 {% if hfcontrol.phone %} {{hfcontrol.phone}} {% else %}
+          8855885588 {% endif %}
+        </span>
+      </div>
+      <div class="header-buttons col-md-6 d-flex justify-content-end">
+        {% if user.is_authenticated %}
+        <a class="btn btn-accent mr-3" href="{% url 'dashboard' %}"
+          >Dashboard</a
+        >
+        <a class="btn btn-accent" href="{% url 'logout' %}">Logout</a>
+        {% else %}
+        <a class="btn btn-accent mr-3" href="{% url 'login' %}">Signin</a>
+        <a class="btn btn-accent" href="{% url 'register' %}">SignUp</a>
+        {% endif %}
+      </div>
+    </div>
+  </div>
+</header>
